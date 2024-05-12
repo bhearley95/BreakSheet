@@ -44,6 +44,7 @@ grid_prod = st.columns([0.2,0.2,0.4,0.2])
 year_choice = []
 brand_choice = []
 def add_row_prod(row):
+  # Select the Year
   with grid_prod[0]:
     yr_list = list(prod_dict.keys())
     yr_list.sort(reverse=True)
@@ -53,15 +54,28 @@ def add_row_prod(row):
       year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}')
     else:
       year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}', label_visibility = "collpased")
-  with grid_prod[1]:
-    br_list = list(prod_dict[st.session_state[f'input_col_yr{row}']].keys())
-    br_list.sort()
-    while len(brand_choice) < row+1:
-      brand_choice.append(None)
-    if row == 0:
-      brand_choice[row] = st.selectbox('Brand',br_list, key = f'input_col_br{row}')
-    else:
-      brand_choice[row] = st.selectbox('Brand',br_list, key = f'input_col_br{row}', label_visibility = "collpased")
+
+    # Select the Brand
+    with grid_prod[1]:
+      br_list = list(prod_dict[st.session_state[f'input_col_yr{row}']].keys())
+      br_list.sort()
+      while len(brand_choice) < row+1:
+        brand_choice.append(None)
+      if row == 0:
+        brand_choice[row] = st.selectbox('Brand',br_list, key = f'input_col_br{row}')
+      else:
+        brand_choice[row] = st.selectbox('Brand',br_list, key = f'input_col_br{row}', label_visibility = "collpased")
+
+    # Select the Product
+    with grid_prod[2]:
+      pr_list = prod_dict[st.session_state[f'input_col_yr{row}']][st.session_state[f'input_col_yr{row}']]
+      pr_list.sort()
+      while len(brand_choice) < row+1:
+        product_choice.append(None)
+      if row == 0:
+        product_choice[row] = st.selectbox('Product',pr_list, key = f'input_col_pr{row}')
+      else:
+        product_choice[row] = st.selectbox('Product',pr_list, key = f'input_col_br{row}', label_visibility = "collpased")
 
 for r in range(int(st.session_state['num_prod'])):
   add_row_prod(r)
