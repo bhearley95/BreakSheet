@@ -7,6 +7,8 @@ import glob
 # Set Page Configuration
 st.set_page_config(layout="wide")
 
+st.image('banner.png')
+
 # Set Title
 st.title('NBA Team Breaks')
 st.markdown('Select the products in your break to view the full checklist.')
