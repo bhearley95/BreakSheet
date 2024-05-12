@@ -96,7 +96,7 @@ with grid_team[0]:
 # Show the chekclist
 if st.button('Show Full Break Checklist'):
   auto_data = []
-  mem_data
+  mem_data = []
   insert_data = []
   base_data = []
   for i in range(int(st.session_state['num_prod'])):
