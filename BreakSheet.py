@@ -55,9 +55,9 @@ def add_row_prod(row):
     while len(brand_choice) < row+1:
       brand_choice.append(None)
     if row == 0:
-      brand_choice[row] = st.selectbox('Brand',(list(prod_dict[st.session_state[f'input_col_yr{row}]].keys())), key = f'input_col_br{row}')
+      brand_choice[row] = st.selectbox('Brand',(list(prod_dict[st.session_state[f'input_col_yr{row}']].keys())), key = f'input_col_br{row}')
     else:
-      brand_choice[row] = st.selectbox('Brand',(list(prod_dict[st.session_state[f'input_col_yr{row}]].keys())), key = f'input_col_br{row}', label_visibility = "collpased")
+      brand_choice[row] = st.selectbox('Brand',(list(prod_dict[st.session_state[f'input_col_yr{row}']].keys())), key = f'input_col_br{row}', label_visibility = "collpased")
 
 for r in range(int(st.session_state['num_prod'])):
   add_row_prod(r)
