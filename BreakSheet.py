@@ -18,7 +18,7 @@ banner_files = glob.glob('*.png')
 os.chdir(home)
 
 ad_place = st.empty()
-ad_place.image(os.path.join(ad_dir,banner_files[0]))
+ad_place.image(os.path.join(ad_dir,banner_files[1]))
 
 # Set Title
 st.title('NBA Team Breaks')
