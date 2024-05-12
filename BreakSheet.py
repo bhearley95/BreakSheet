@@ -45,10 +45,13 @@ year_choice = []
 brand_choice = []
 def add_row_prod(row):
   with grid_prod[0]:
+    yr_list = list(prod_dict.keys())
+    st.markdown(yr_list)
+    yr_list.sort()
+    st.markdown(yr_list)
     while len(year_choice) < row+1:
       year_choice.append(None)
     if row == 0:
-      st.markdown(list(prod_dict.keys()))
       year_choice[row] = st.selectbox('Year',(list(prod_dict.keys()).sort(reverse=True)), key = f'input_col_yr{row}')
     else:
       year_choice[row] = st.selectbox('Year',(list(prod_dict.keys()).sort().flip()), key = f'input_col_yr{row}', label_visibility = "collpased")
