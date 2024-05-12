@@ -12,8 +12,8 @@ st.title('NBA Team Breaks Sheets')
 st.markdown('Select the products in your break to view the full checklist.')
 
 # Get List of all products available
-home = os.getcwd()
-prod_dir = os.path.join(home,'ProductSheets')
+home = '/mount/src/breaksheet'
+prod_dir = '/mount/src/breaksheet/ProductSheets'
 os.chdir(prod_dir)
 files_all = glob.glob('*.xlsx')
 prod_all = []
