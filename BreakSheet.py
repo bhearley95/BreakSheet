@@ -7,15 +7,25 @@ import glob
 # Set Page Configuration
 st.set_page_config(layout="wide")
 
-st.image('banner.png')
+# Set Directories
+home = '/mount/src/breaksheet'
+prod_dir = '/mount/src/breaksheet/ProductSheets'
+ad_dir = '/mount/src/breaksheet/AdBanners'
+
+# Get list of banners
+os.chdir(ad_dir)
+banner_files = glob.glob('*.png')
+os.chdir(home)
+
+ad_place = st.empty()
+ad_place.image(os.path.join(ad_dir,banner_files[0]))
 
 # Set Title
 st.title('NBA Team Breaks')
 st.markdown('Select the products in your break to view the full checklist.')
 
 # Get List of all products available
-home = '/mount/src/breaksheet'
-prod_dir = '/mount/src/breaksheet/ProductSheets'
+
 os.chdir(prod_dir)
 files_all = glob.glob('*.xlsx')
 prod_dict = {}
