@@ -106,5 +106,5 @@ if st.button('Show Full Break Checklist'):
         auto_data.append([st.session_state[f'input_col_yr{i}'], st.session_state[f'input_col_br{i}'], st.session_state[f'input_col_pr{i}'] ,
                          auto_read.values[j][0], auto_read.values[j][1], auto_read.values[j][2], auto_read.values[j][3], auto_read.values[j][4]])
 
-  auto_df = pd.DataFrame(auto_data,columns = ['Year', 'Brand', 'Product', 'Card','Number', 'Player','Parallels'])
+  auto_df = pd.DataFrame(auto_data,columns = ['Year', 'Brand', 'Product', 'Card','Number', 'Player','Team','Parallels'])
   st.table(auto_df)
