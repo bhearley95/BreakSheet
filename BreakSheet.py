@@ -107,4 +107,4 @@ if st.button('Show Full Break Checklist'):
                          auto_read.values[j][0], auto_read.values[j][1], auto_read.values[j][2], auto_read.values[j][3], auto_read.values[j][4]])
 
   auto_df = pd.DataFrame(auto_data,columns = ['Year', 'Brand', 'Product', 'Card','Number', 'Player','Team','Parallels'])
-  st.dataframe(auto_df)
+  st.dataframe(auto_df, hide_index=True)
