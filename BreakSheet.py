@@ -18,8 +18,12 @@ os.chdir(prod_dir)
 files_all = glob.glob('*.xlsx')
 prod_all = []
 for i in range(len(files_all)):
-  name = files_all[i][:len(files_all[i])-4]
-  st.markdown(name)
+  name = files_all[i][:len(files_all[i])-5]
+  data = name.split(' ')
+  year = data[0]
+  brand = data[1]
+  product = data[2]
+  st.markdown(year + brand + product)
 os.chdir(home)
 
 # Get the products
