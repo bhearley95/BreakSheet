@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import os
 import glob
+import datetime
 
 # Set Page Configuration
 st.set_page_config(layout="wide")
@@ -18,7 +19,21 @@ banner_files = glob.glob('*.png')
 os.chdir(home)
 
 ad_place = st.empty()
-ad_place.image(os.path.join(ad_dir,banner_files[1]))
+ad_place.image(os.path.join(ad_dir,banner_files[0]))
+img_ct = 0
+
+def replace_image(img_ct):
+  # get time
+  a = datetime.datetime.now()
+  a_frmt = "%s" % (a.second)
+  if a_frmt == '0' or a_frmt == '303':
+    ad_place.image(os.path.join(ad_dir,banner_files[img_ct]))
+    img_ct = img_ct +1
+    if img_ct == len(banner_files):
+      img_ct = 0
+    return img_ct
+      
+img_ct = replace_image(img_ct)
 
 # Set Title
 st.title('NBA Team Breaks')
