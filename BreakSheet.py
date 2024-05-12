@@ -40,11 +40,12 @@ grid_num_prod = st.columns([0.4,0.6])
 with grid_num_prod[0]:
   num_prod = st.number_input('Total number of products in the break',  min_value=0, max_value=None, value=0, step=1, key='num_prod')
 
-grid_prod = st.columns([0.2,0.2,0.4,0.2])
+#grid_prod = st.columns([0.2,0.2,0.4,0.2])
 year_choice = []
 brand_choice = []
 product_choice = []
 def add_row_prod(row):
+  grid_prod = st.columns([0.2,0.2,0.4,0.2])
   # Select the Year
   with grid_prod[0]:
     yr_list = list(prod_dict.keys())
