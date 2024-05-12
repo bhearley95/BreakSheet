@@ -96,6 +96,7 @@ with grid_team[0]:
 # Show the chekclist
 if st.button('Show Full Break Checklist'):
   auto_data = []
+  mem_data
   insert_data = []
   base_data = []
   for i in range(int(st.session_state['num_prod'])):
@@ -105,6 +106,12 @@ if st.button('Show Full Break Checklist'):
       if st.session_state['team_choice'] in auto_read.values[j][3]:
         auto_data.append([st.session_state[f'input_col_yr{i}'], st.session_state[f'input_col_br{i}'], st.session_state[f'input_col_pr{i}'] ,
                          auto_read.values[j][0], auto_read.values[j][1], auto_read.values[j][2], auto_read.values[j][3], auto_read.values[j][4]])
+
+    mem_read = pd.read_excel(os.path.join(prod_dir,filename),sheet_name = 'Memorabilia')
+    for j in range(len(mem_read.values)):
+      if st.session_state['team_choice'] in mem_read.values[j][3]:
+        mem_data.append([st.session_state[f'input_col_yr{i}'], st.session_state[f'input_col_br{i}'], st.session_state[f'input_col_pr{i}'] ,
+                         mem_read.values[j][0], mem_read.values[j][1], mem_read.values[j][2], mem_read.values[j][3], mem_read.values[j][4]])
 
     insert_read = pd.read_excel(os.path.join(prod_dir,filename),sheet_name = 'Inserts')
     for j in range(len(insert_read.values)):
@@ -121,6 +128,10 @@ if st.button('Show Full Break Checklist'):
   st.markdown('Autographs')
   auto_df = pd.DataFrame(auto_data,columns = ['Year', 'Brand', 'Product', 'Card','Number', 'Player','Team','Parallels'])
   st.dataframe(auto_df, hide_index=True)
+
+  st.markdown('Memorabilia')
+  mem_df = pd.DataFrame(mem_data,columns = ['Year', 'Brand', 'Product', 'Card','Number', 'Player','Team','Parallels'])
+  st.dataframe(mem_df, hide_index=True)
 
   st.markdown('Inserts')
   insert_df = pd.DataFrame(insert_data,columns = ['Year', 'Brand', 'Product', 'Card','Number', 'Player','Team','Parallels'])
