@@ -100,4 +100,4 @@ if st.button('Show Full Break Checklist'):
   base_data = []
   for i in range(int(st.session_state['num_prod'])):
     filename = st.session_state[f'input_col_yr{i}'] + ' ' + st.session_state[f'input_col_br{i}'] + ' ' + st.session_state[f'input_col_pr{i}'] + '.xlsx'
-    auto_read = pd.read_excel(os.path.join(prod_dir,filename),sheetname = 'Autographs')
+    auto_read = pd.read_excel(os.path.join(prod_dir,filename),sheet_name = 'Autographs')
