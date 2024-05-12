@@ -82,3 +82,13 @@ for r in range(int(st.session_state['num_prod'])):
   add_row_prod(r)
 
 st.markdown("""---""")
+
+# Create Team List
+team_list = ["76ers", "Bucks", "Bulls", "Cavaliers", "Celtics", "Clippers",
+             "Grizzlies","Hawks","Heat","Hornets","Jazz","Kings",
+             "Knicks","Lakers","Magic","Mavericks","Nets","Nuggets",
+             "Pacers","Pelicans","Pistons","Raptors","Rockets","Spurs",
+             "Suns","Thunder","Timberwolves","Trail Blazers","Warriors","Wizards"]
+team_choice = st.selectbox('Select the team',team_list,key='team_choice')
+if st.button('Show Full Break Checklist'):
+  temp=1
