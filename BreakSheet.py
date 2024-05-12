@@ -101,7 +101,7 @@ if st.button('Show Full Break Checklist'):
   for i in range(int(st.session_state['num_prod'])):
     filename = st.session_state[f'input_col_yr{i}'] + ' ' + st.session_state[f'input_col_br{i}'] + ' ' + st.session_state[f'input_col_pr{i}'] + '.xlsx'
     auto_read = pd.read_excel(os.path.join(prod_dir,filename),sheet_name = 'Autographs')
-    for j in range(len(auto_read.values[0])):
+    for j in range(len(auto_read.values)):
       if st.session_state['team_choice'] in auto_read.values[j][3]:
         auto_data.append([st.session_state[f'input_col_yr{i}'], st.session_state[f'input_col_br{i}'], st.session_state[f'input_col_pr{i}'] ,
                          auto_read.values[j][0], auto_read.values[j][1], auto_read.values[j][2], auto_read.values[j][3], auto_read.values[j][4]])
