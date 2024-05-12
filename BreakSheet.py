@@ -20,6 +20,7 @@ prod_all = []
 for i in range(len(files_all)):
   name = files_all[i][:len(files_all[i])-4]
   st.markdown(name)
+os.chdir(home)
 
 # Get the products
 grid_prod = st.columns([0.4,0.6])
