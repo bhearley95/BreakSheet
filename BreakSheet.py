@@ -47,9 +47,9 @@ def add_row_prod(row):
     while len(year_choice) < row+1:
       year_choice.append(None)
     if row == 0:
-      year_choice[row] = st.select_box('Year',(list(prod_dict.keys())), key = f'input_col_yr{row}')
+      year_choice[row] = st.selectbox('Year',(list(prod_dict.keys())), key = f'input_col_yr{row}')
     else:
-      year_choice[row] = st.select_box('Year',(list(prod_dict.keys())), key = f'input_col_yr{row}', label_visibility = "collpased")
+      year_choice[row] = st.selectbox('Year',(list(prod_dict.keys())), key = f'input_col_yr{row}', label_visibility = "collpased")
 
 for r in range(int(st.session_state['num_prod'])):
   add_row_prod(r)
