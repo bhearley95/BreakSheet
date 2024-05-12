@@ -80,3 +80,5 @@ def add_row_prod(row):
 
 for r in range(int(st.session_state['num_prod'])):
   add_row_prod(r)
+
+st.markdown("""---""")
