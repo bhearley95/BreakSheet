@@ -22,7 +22,7 @@ for i in range(len(files_all)):
   data = name.split(' ')
   year = data[0]
   brand = data[1]
-  product = data[2]
+  product = name[len(year) + len(brand) + 2:]
   st.markdown(year + brand + product)
 os.chdir(home)
 
