@@ -48,7 +48,7 @@ def add_row_prod(row):
     while len(year_choice) < row+1:
       year_choice.append(None)
     if row == 0:
-      st.markdown(list(prod_dict.keys()).sort(reverse=True))
+      st.markdown(list(prod_dict.keys()))
       year_choice[row] = st.selectbox('Year',(list(prod_dict.keys()).sort(reverse=True)), key = f'input_col_yr{row}')
     else:
       year_choice[row] = st.selectbox('Year',(list(prod_dict.keys()).sort().flip()), key = f'input_col_yr{row}', label_visibility = "collpased")
