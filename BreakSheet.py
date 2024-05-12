@@ -54,7 +54,7 @@ def add_row_prod(row):
     if row == 0:
       year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}')
     else:
-      year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}')#, label_visibility = "collpased")
+      year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}', label_visibility = "collpased")
 
     # Select the Brand
     with grid_prod[1]:
