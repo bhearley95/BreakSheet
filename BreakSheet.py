@@ -8,7 +8,7 @@ import glob
 st.set_page_config(layout="wide")
 
 # Set Title
-st.title('NBA Team Breaks Sheets')
+st.title('NBA Team Breaks')
 st.markdown('Select the products in your break to view the full checklist.')
 
 # Get List of all products available
