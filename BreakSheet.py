@@ -106,5 +106,26 @@ if st.button('Show Full Break Checklist'):
         auto_data.append([st.session_state[f'input_col_yr{i}'], st.session_state[f'input_col_br{i}'], st.session_state[f'input_col_pr{i}'] ,
                          auto_read.values[j][0], auto_read.values[j][1], auto_read.values[j][2], auto_read.values[j][3], auto_read.values[j][4]])
 
+    insert_read = pd.read_excel(os.path.join(prod_dir,filename),sheet_name = 'Inserts')
+    for j in range(len(insert_read.values)):
+      if st.session_state['team_choice'] in insert_read.values[j][3]:
+        insert_data.append([st.session_state[f'input_col_yr{i}'], st.session_state[f'input_col_br{i}'], st.session_state[f'input_col_pr{i}'] ,
+                         insert_read.values[j][0], insert_read.values[j][1], insert_read.values[j][2], insert_read.values[j][3], insert_read.values[j][4]])
+
+    base_read = pd.read_excel(os.path.join(prod_dir,filename),sheet_name = 'Base')
+    for j in range(len(base_read.values)):
+      if st.session_state['team_choice'] in base_read.values[j][3]:
+        base_data.append([st.session_state[f'input_col_yr{i}'], st.session_state[f'input_col_br{i}'], st.session_state[f'input_col_pr{i}'] ,
+                         base_read.values[j][0], base_read.values[j][1], base_read.values[j][2], base_read.values[j][3], base_read.values[j][4]])
+
+  st.markdown('Autographs')
   auto_df = pd.DataFrame(auto_data,columns = ['Year', 'Brand', 'Product', 'Card','Number', 'Player','Team','Parallels'])
   st.dataframe(auto_df, hide_index=True)
+
+  st.markdown('Inserts')
+  insert_df = pd.DataFrame(insert_data,columns = ['Year', 'Brand', 'Product', 'Card','Number', 'Player','Team','Parallels'])
+  st.dataframe(insert_df, hide_index=True)
+
+  st.markdown('Base')
+  base_df = pd.DataFrame(base_data,columns = ['Year', 'Brand', 'Product', 'Card','Number', 'Player','Team','Parallels'])
+  st.dataframe(base_df, hide_index=True)
