@@ -43,6 +43,7 @@ with grid_num_prod[0]:
 grid_prod = st.columns([0.2,0.2,0.4,0.2])
 year_choice = []
 brand_choice = []
+product_choice = []
 def add_row_prod(row):
   # Select the Year
   with grid_prod[0]:
@@ -68,9 +69,9 @@ def add_row_prod(row):
 
     # Select the Product
     with grid_prod[2]:
-      pr_list = prod_dict[st.session_state[f'input_col_yr{row}']][st.session_state[f'input_col_yr{row}']]
+      pr_list = prod_dict[st.session_state[f'input_col_yr{row}']][st.session_state[f'input_col_br{row}']]
       pr_list.sort()
-      while len(brand_choice) < row+1:
+      while len(product_choice) < row+1:
         product_choice.append(None)
       if row == 0:
         product_choice[row] = st.selectbox('Product',pr_list, key = f'input_col_pr{row}')
