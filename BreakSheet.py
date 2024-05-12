@@ -46,22 +46,22 @@ brand_choice = []
 def add_row_prod(row):
   with grid_prod[0]:
     yr_list = list(prod_dict.keys())
-    st.markdown(yr_list)
-    yr_list.sort()
-    st.markdown(yr_list)
+    yr_list.sort(reverse=True)
     while len(year_choice) < row+1:
       year_choice.append(None)
     if row == 0:
-      year_choice[row] = st.selectbox('Year',(list(prod_dict.keys()).sort(reverse=True)), key = f'input_col_yr{row}')
+      year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}')
     else:
-      year_choice[row] = st.selectbox('Year',(list(prod_dict.keys()).sort().flip()), key = f'input_col_yr{row}', label_visibility = "collpased")
+      year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}', label_visibility = "collpased")
   with grid_prod[1]:
+    br_list = list(prod_dict[st.session_state[f'input_col_yr{row}']].keys())
+    br_list.sort()
     while len(brand_choice) < row+1:
       brand_choice.append(None)
     if row == 0:
-      brand_choice[row] = st.selectbox('Brand',(list(prod_dict[st.session_state[f'input_col_yr{row}']].keys()).sort()), key = f'input_col_br{row}')
+      brand_choice[row] = st.selectbox('Brand',br_list, key = f'input_col_br{row}')
     else:
-      brand_choice[row] = st.selectbox('Brand',(list(prod_dict[st.session_state[f'input_col_yr{row}']].keys()).sort()), key = f'input_col_br{row}', label_visibility = "collpased")
+      brand_choice[row] = st.selectbox('Brand',br_list, key = f'input_col_br{row}', label_visibility = "collpased")
 
 for r in range(int(st.session_state['num_prod'])):
   add_row_prod(r)
