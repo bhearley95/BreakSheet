@@ -18,7 +18,7 @@ os.chdir(prod_dir)
 files_all = glob.glob('*.xlsx')
 prod_all = []
 for i in range(len(files_all)):
-  name = files_all[i][:len(files_all)-4]
+  name = files_all[i][:len(files_all[i])-4]
   st.markdown(name)
 
 # Get the products
