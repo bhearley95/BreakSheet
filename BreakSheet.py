@@ -38,7 +38,7 @@ os.chdir(home)
 # Get the products
 grid_num_prod = st.columns([0.4,0.6])
 with grid_num_prod[0]:
-  num_prod = st.number_input('Total number of products in the break',  min_value=0, max_value=None, value=0, step=1)
+  num_prod = st.number_input('Total number of products in the break',  min_value=0, max_value=None, value=0, step=1, key='num_prod')
 
 grid_prod = st.columns([0.2,0.2,0.4,0.2])
 year_choice = []
@@ -51,3 +51,5 @@ def add_row_prod(row):
     else:
       year_choice[row] = st.select_box('Year',(list(prod_dict.keys())), key = f'input_col_yr{row}', label_visibility = "collpased")
 
+for r in range(int(st.session_state['num_prod'])):
+  add_row_prod(r)
