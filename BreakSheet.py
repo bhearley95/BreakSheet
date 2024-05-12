@@ -23,7 +23,7 @@ for i in range(len(files_all)):
   year = data[0]
   brand = data[1]
   product = name[len(year) + len(brand) + 2:]
-  st.markdown(year + brand + product)
+  prod_all.append([year, brand, product])
 os.chdir(home)
 
 # Get the products
