@@ -76,7 +76,7 @@ def add_row_prod(row):
       if row == 0:
         product_choice[row] = st.selectbox('Product',pr_list, key = f'input_col_pr{row}')
       else:
-        product_choice[row] = st.selectbox('Product',pr_list, key = f'input_col_br{row}', label_visibility = "collapsed")
+        product_choice[row] = st.selectbox('Product',pr_list, key = f'input_col_pr{row}', label_visibility = "collapsed")
 
 for r in range(int(st.session_state['num_prod'])):
   add_row_prod(r)
