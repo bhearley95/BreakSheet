@@ -54,7 +54,7 @@ def add_row_prod(row):
     if row == 0:
       year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}')
     else:
-      year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}', label_visibility = "collpased")
+      year_choice[row] = st.selectbox('Year',yr_list, key = f'input_col_yr{row}', label_visibility = "collapsed")
 
     # Select the Brand
     with grid_prod[1]:
@@ -65,7 +65,7 @@ def add_row_prod(row):
       if row == 0:
         brand_choice[row] = st.selectbox('Brand',br_list, key = f'input_col_br{row}')
       else:
-        brand_choice[row] = st.selectbox('Brand',br_list, key = f'input_col_br{row}', label_visibility = "collpased")
+        brand_choice[row] = st.selectbox('Brand',br_list, key = f'input_col_br{row}', label_visibility = "collapsed")
 
     # Select the Product
     with grid_prod[2]:
@@ -76,7 +76,7 @@ def add_row_prod(row):
       if row == 0:
         product_choice[row] = st.selectbox('Product',pr_list, key = f'input_col_pr{row}')
       else:
-        product_choice[row] = st.selectbox('Product',pr_list, key = f'input_col_br{row}', label_visibility = "collpased")
+        product_choice[row] = st.selectbox('Product',pr_list, key = f'input_col_br{row}', label_visibility = "collapsed")
 
 for r in range(int(st.session_state['num_prod'])):
   add_row_prod(r)
