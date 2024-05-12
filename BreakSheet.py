@@ -89,6 +89,15 @@ team_list = ["76ers", "Bucks", "Bulls", "Cavaliers", "Celtics", "Clippers",
              "Knicks","Lakers","Magic","Mavericks","Nets","Nuggets",
              "Pacers","Pelicans","Pistons","Raptors","Rockets","Spurs",
              "Suns","Thunder","Timberwolves","Trail Blazers","Warriors","Wizards"]
-team_choice = st.selectbox('Select the team',team_list,key='team_choice')
+grid_team = st.columns([0.4, 0.6])
+with grid_team[0]:
+  team_choice = st.selectbox('Select the team',team_list,key='team_choice')
+
+# Show the chekclist
 if st.button('Show Full Break Checklist'):
-  temp=1
+  auto_data = []
+  insert_data = []
+  base_data = []
+  for i in range(int(st.session_state['num_prod'])):
+    filename = st.session_state[f'input_col_yr{i}'] + ' ' + st.session_state[f'input_col_br{i}'] + ' ' + st.session_state[f'input_col_pr{row}'] + '.xlsx'
+    auto_read = pd.read_excel(os.path.join(prod_dir,filename),sheetname = 'Autographs')
